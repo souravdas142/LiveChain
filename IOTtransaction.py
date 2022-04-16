@@ -35,14 +35,7 @@ class IOTtransaction:
 
     #to JSON
     def to_json(self):
-        data={}
-        data["hash"]=self.hash
-        data["timestamp"]=self.timestamp
-        unit_tran_data=[]
-        for unit_tran in self.transactions:
-            unit_tran_data.append(unit_tran.to_dict())
-        data["transactions"]=unit_tran_data
-        return json.dumps(data)
+        return json.dumps(self.to_dict())
 
     #add or load JSON transaction
     def add_json_transactions(self,json_transactions):
@@ -81,14 +74,7 @@ class unit_iot_transaction:
 
     #convert to JSON format
     def to_json(self):
-        data = {}
-        data["sender"] = self.sender_address
-        data["signature"] = self.signature
-        receiver_data = []
-        for rec in self.receivers:
-            receiver_data.append(rec.to_dict())
-        data["receiver"] = receiver_data;
-        return json.dumps(data)
+        return json.dumps(self.to_dict())
 
 
 
@@ -116,11 +102,7 @@ class reveiver:
 
     #converting into JSON format
     def to_json(self):
-        data = {}
-        data["receiver"] = self.address
-        data["message"] = self.message
-        data["key_share"] = self.key_share
-        return json.dumps(data)
+        return json.dumps(self.to_dict())
 
 
 
